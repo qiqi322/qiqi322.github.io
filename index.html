@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的常用导航</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        /* 动态背景动画 */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 主容器 */
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+
+        /* 链接网格布局 */
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+            border-color: #23a6d5;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #2c3e50;
+        }
+
+        .card p {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            line-height: 1.4;
+        }
+
+        /* 装饰性小图标 */
+        .icon {
+            font-size: 2em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* 底部版权 */
+        .footer {
+            margin-top: 40px;
+            font-size: 0.8em;
+            color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚀 我的快捷导航</h1>
+        
+        <div class="link-grid">
+            <!-- 链接 1 -->
+            <a href="https://saikao.junmao.top/" target="_blank" class="card">
+                <span class="icon">🏆</span>
+                <h3>赛马考</h3>
+                <p>在线编程竞赛平台</p>
+            </a>
+
+            <!-- 链接 2 -->
+            <a href="https://www.bootcdn.cn/" target="_blank" class="card">
+                <span class="icon">⚡</span>
+                <h3>BootCDN</h3>
+                <p>前端开源项目CDN加速服务</p>
+            </a>
+
+            <!-- 链接 3 -->
+            <a href="https://www.mcmod.cn/" target="_blank" class="card">
+                <span class="icon">⛏️</span>
+                <h3>MC百科</h3>
+                <p>Minecraft模组百科大全</p>
+            </a>
+
+            <!-- 链接 4 -->
+            <a href="http://oj.junmao.top" target="_blank" class="card">
+                <span class="icon">💻</span>
+                <h3>骏马OJ</h3>
+                <p>在线判题系统</p>
+            </a>
+
+            <!-- 链接 5 -->
+            <a href="https://www.bilibili.com" target="_blank" class="card">
+                <span class="icon">📺</span>
+                <h3>哔哩哔哩</h3>
+                <p>你感兴趣的视频都在B站</p>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 个人导航页 | 点击卡片即可跳转</p>
+        </div>
+    </div>
+
+</body>
+</html>
