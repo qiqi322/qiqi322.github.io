@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的常用导航</title>
     <style>
-        /* --- 这里是控制“彩色”的核心代码 --- */
+        /* 全局样式重置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* 这里就是那个紫蓝色的动态渐变背景 */
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
             background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
@@ -18,10 +17,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
+            color: #333;
         }
 
-        /* 让背景动起来的动画 */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -29,69 +27,127 @@
         }
 
         .container {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1); /* 半透明玻璃效果 */
+            background: rgba(255, 255, 255, 0.95);
             padding: 40px;
             border-radius: 20px;
-            backdrop-filter: blur(10px); /* 毛玻璃模糊 */
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             width: 90%;
+            max-width: 900px; /*稍微加宽一点以容纳更多卡片*/
+            text-align: center;
+            backdrop-filter: blur(5px);
         }
 
-        h1 {
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+        h1 { margin-bottom: 30px; color: #2c3e50; font-size: 2.2em; letter-spacing: 1px; }
 
-        .grid {
+        .link-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /*调整最小宽度让排版更紧凑*/
             gap: 20px;
         }
 
-        /* 漂亮的彩色按钮 */
-        .btn {
-            display: block;
-            padding: 15px;
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
             text-decoration: none;
-            color: white;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
+            color: #333;
+            border: 1px solid #e0e0e0;
             transition: all 0.3s ease;
-            font-weight: bold;
-            border: 1px solid rgba(255,255,255,0.3);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        .btn:hover {
-            transform: translateY(-5px); /* 鼠标放上去会浮起来 */
-            background: rgba(255, 255, 255, 0.4);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+            border-color: #23a6d5;
         }
 
-        /* 给 DeepSeek 一个特别的颜色 */
-        .deepseek-btn {
-            background: linear-gradient(45deg, #007cf0, #00dfd8);
-        }
+        .card h3 { margin-bottom: 8px; font-size: 1.1em; color: #2c3e50; }
+        .card p { font-size: 0.85em; color: #7f8c8d; line-height: 1.3; }
+
+        .icon { font-size: 2em; margin-bottom: 10px; display: block; }
+
+        .footer { margin-top: 30px; font-size: 0.8em; color: #95a5a6; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>我的导航页</h1>
+        <h1>🚀 我的快捷导航</h1>
         
-        <div class="grid">
-            <!-- DeepSeek 链接 -->
-            <a href="https://www.deepseek.com/" target="_blank" class="btn deepseek-btn">
-                🚀 DeepSeek
+        <div class="link-grid">
+            <!-- 新增：DeepSeek -->
+            <a href="https://chat.deepseek.com/" target="_blank" class="card">
+                <span class="icon">🧠</span>
+                <h3>DeepSeek</h3>
+                <p>国产最强AI大模型</p>
             </a>
 
-            <!-- 其他链接示例 -->
-            <a href="https://www.baidu.com" target="_blank" class="btn">百度</a>
-            <a href="https://www.bilibili.com" target="_blank" class="btn">B站</a>
-            <a href="https://github.com" target="_blank" class="btn">GitHub</a>
+            <!-- 新增：百度 -->
+            <a href="https://www.baidu.com/" target="_blank" class="card">
+                <span class="icon">🔍</span>
+                <h3>百度一下</h3>
+                <p>全球最大的中文搜索引擎</p>
+            </a>
+
+            <!-- 原有：赛马考 -->
+            <a href="https://saikao.junmao.top/" target="_blank" class="card">
+                <span class="icon">🏆</span>
+                <h3>赛马考</h3>
+                <p>在线编程竞赛平台</p>
+            </a>
+
+            <!-- 新增：GitHub (常用) -->
+            <a href="https://github.com/" target="_blank" class="card">
+                <span class="icon">🐙</span>
+                <h3>GitHub</h3>
+                <p>全球最大的代码托管平台</p>
+            </a>
+
+            <!-- 原有：MC百科 -->
+            <a href="https://www.mcmod.cn/" target="_blank" class="card">
+                <span class="icon">⛏️</span>
+                <h3>MC百科</h3>
+                <p>Minecraft模组百科大全</p>
+            </a>
+
+            <!-- 新增：哔哩哔哩 (常用) -->
+            <a href="https://www.bilibili.com/" target="_blank" class="card">
+                <span class="icon">📺</span>
+                <h3>哔哩哔哩</h3>
+                <p>年轻人聚集的视频社区</p>
+            </a>
+
+            <!-- 原有：骏马OJ -->
+            <a href="http://oj.junmao.top" target="_blank" class="card">
+                <span class="icon">💻</span>
+                <h3>骏马OJ</h3>
+                <p>在线判题系统</p>
+            </a>
+
+            <!-- 新增：知乎 (常用) -->
+            <a href="https://www.zhihu.com/" target="_blank" class="card">
+                <span class="icon">❓</span>
+                <h3>知乎</h3>
+                <p>有问题就会有答案</p>
+            </a>
+            
+            <!-- 原有：BootCDN -->
+            <a href="https://www.bootcdn.cn/" target="_blank" class="card">
+                <span class="icon">⚡</span>
+                <h3>BootCDN</h3>
+                <p>前端开源项目CDN加速</p>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 个人导航页 | 点击卡片即可跳转</p>
         </div>
     </div>
 
