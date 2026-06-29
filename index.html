@@ -3,66 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人导航</title>
+    <title>我的常用导航</title>
     <style>
+        /* --- 这里是控制“彩色”的核心代码 --- */
         body {
+            margin: 0;
+            padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
+            /* 这里就是那个紫蓝色的动态渐变背景 */
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            color: white;
         }
+
+        /* 让背景动起来的动画 */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .container {
             text-align: center;
-            background: white;
+            background: rgba(255, 255, 255, 0.1); /* 半透明玻璃效果 */
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            width: 300px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px); /* 毛玻璃模糊 */
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 600px;
+            width: 90%;
         }
-        h1 { color: #333; margin-bottom: 30px; }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+        }
+
+        /* 漂亮的彩色按钮 */
         .btn {
             display: block;
-            width: 100%;
-            padding: 15px 0;
-            margin: 10px 0;
+            padding: 15px;
             text-decoration: none;
             color: white;
-            border-radius: 8px;
-            transition: transform 0.2s;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
             font-weight: bold;
+            border: 1px solid rgba(255,255,255,0.3);
         }
-        .btn:hover { transform: scale(1.05); }
-        
-        /* 颜色定义 */
-        .baidu { background-color: #2932e1; } /* 百度蓝 */
-        .bilibili { background-color: #fb7299; } /* B站粉 */
-        .deepseek { background-color: #4d6bfe; } /* DeepSeek 类似色 */
 
+        .btn:hover {
+            transform: translateY(-5px); /* 鼠标放上去会浮起来 */
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* 给 DeepSeek 一个特别的颜色 */
+        .deepseek-btn {
+            background: linear-gradient(45deg, #007cf0, #00dfd8);
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>我的导航</h1>
-    
-    <!-- 百度 -->
-    <a href="https://www.baidu.com" target="_blank" class="btn baidu">
-        百度一下
-    </a>
+    <div class="container">
+        <h1>我的导航页</h1>
+        
+        <div class="grid">
+            <!-- DeepSeek 链接 -->
+            <a href="https://www.deepseek.com/" target="_blank" class="btn deepseek-btn">
+                🚀 DeepSeek
+            </a>
 
-    <!-- Bilibili -->
-    <a href="https://www.bilibili.com" target="_blank" class="btn bilibili">
-        哔哩哔哩
-    </a>
-
-    <!-- DeepSeek (新增) -->
-    <a href="https://chat.deepseek.com" target="_blank" class="btn deepseek">
-        DeepSeek AI
-    </a>
-</div>
+            <!-- 其他链接示例 -->
+            <a href="https://www.baidu.com" target="_blank" class="btn">百度</a>
+            <a href="https://www.bilibili.com" target="_blank" class="btn">B站</a>
+            <a href="https://github.com" target="_blank" class="btn">GitHub</a>
+        </div>
+    </div>
 
 </body>
 </html>
